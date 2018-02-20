@@ -4,8 +4,22 @@ import UIKit
 
 //Staircase
 
-let n = 6
+let n = [1, 2, 3, 4, 5]
 
-for i in stride(from: 1, to: n+1, by: 1){
-    print(String(repeating: " ", count: n-i) + String(repeating: "#", count: i))
-}
+//let a = n.sorted()
+//print(a)
+//let sum = n.reduce(0, +)
+//
+//print(sum - a[0])
+//print(sum - a[n.count-1])
+//
+
+let a = 4 //number of candles onthe cake
+let b = [3, 2, 1, 3] //height of the candles
+
+let c = b.max()
+print(b.filter{$0 == c}.count)
+
+//07:05:45PM
+//19:05:45
+

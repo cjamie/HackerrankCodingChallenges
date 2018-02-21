@@ -1,21 +1,24 @@
-//: Playground - noun: a place where people can play
+//
+//  TimeConversion.swift
+//  
+//
+//  Created by Admin on 2/20/18.
+//
 
-import UIKit
+import Foundation
 
-//Staircase
+// Read the string
+let a = readLine()!
 
-//07:05:45PM
-//"19:05:45" //output
 
-let a = "12:05:45PM"
+
+//let a = "12:05:45PM"
 let end = a.index(a.endIndex, offsetBy: -2) //endIndex
-
-
 
 func printIt(input:String){
     guard let b = Int(a.prefix(2)) else {return}
     let start = input.index(a.startIndex, offsetBy: 2)
-
+    
     if input.suffix(2) == "PM"{
         if b == 12{
             print("\(b)"+input[start..<end])
@@ -32,3 +35,4 @@ func printIt(input:String){
 }
 
 printIt(input: a)
+

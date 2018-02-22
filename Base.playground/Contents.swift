@@ -14,11 +14,60 @@ import UIKit
 
 //let arr = [10, 5, 20, 20, 4, 5, 2, 25, 1]
 
-let arr = [1, 2, 1, 3, 2]
-let dm = [3, 2] //d is target, m is number of consec
-var counter = 0
 
-for i in stride(from: 0, to: arr.count-dm[1]+1, by: 1){ //last one is 3 so 5-2 = 1
-    if arr[i..<i+dm[1]].reduce(0, +) == dm[0]{counter += 1}
+//n k
+let nk = [6,3] //it must be divisible by k = 3
+let k = nk[1]
+
+//let arr = [1, 3, 2, 6, 1, 2]
+let arr = [1, 3, 2, 6, 4, 5, 9]
+
+//var buckets = Array(repeating: 0, count: k)
+//arr.forEach{ buckets[$0%k] += 1 }
+//print(buckets)  //this should be correct
+//var counter = buckets[0] * (buckets[0]-1)/2 //this should be correct
+//print("initial \(counter)")
+
+//for i in stride(from: 1, to: k/2+1, by: 1){
+//    if 2*i == k{
+//        print("breaking with \(counter)")
+//        break
+//    }
+////    print("complement \(complement) \(buckets[complement])")
+////    print("compnents are now \(buckets[i]) \(buckets[complement])")
+//    counter += buckets[i]*buckets[k-i]
+////    print("counter is now \(counter)")
+//}
+
+//var i = 1 //index counter
+//while 2*i != k, i<=k/2{
+//    counter += buckets[i]*buckets[k-i]
+//    i += 1
+//}
+
+
+
+
+//will never execute for odd numbers.
+//if k%2 == 0 {                           //account for even number edge case
+////    print("we are even")
+//    counter += arr[k/2]*(arr[k/2]-1)/2  //same equation for bucket[0]
+//}
+
+//print(counter)
+//print("counter \(counter)")
+
+
+
+var counter = 0
+for i in stride(from: 0, to: arr.count, by: 1){
+    for j in stride(from: i, to: arr.count, by: 1){
+        if i != j, (arr[i]+arr[j]) % k == 0{
+            counter += 1
+        }
+    }
 }
+
 print(counter)
+
+

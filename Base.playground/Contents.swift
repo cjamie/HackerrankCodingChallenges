@@ -4,6 +4,7 @@ import UIKit
 
 
 // number of elements
+//_ = readLine()!
 //let n = Int(readLine()!)!
 
 // read array and map the elements to integer
@@ -12,23 +13,12 @@ import UIKit
 
 
 //let arr = [10, 5, 20, 20, 4, 5, 2, 25, 1]
-let arr = [3, 4, 21, 36, 10, 28, 35, 5, 24, 42]
-var currMax = arr[0]
-var currMin = arr[0]
-var maxCounter = 0
-var minCounter = 0
 
-arr.forEach{
-    if $0>currMax{
-        currMax = $0
-        maxCounter += 1
-    }
-    if $0<currMin{
-        currMin = $0
-        minCounter += 1
-    }
+let arr = [1, 2, 1, 3, 2]
+let dm = [3, 2] //d is target, m is number of consec
+var counter = 0
+
+for i in stride(from: 0, to: arr.count-dm[1]+1, by: 1){ //last one is 3 so 5-2 = 1
+    if arr[i..<i+dm[1]].reduce(0, +) == dm[0]{counter += 1}
 }
-
-
-print(maxCounter)
-print(minCounter)
+print(counter)

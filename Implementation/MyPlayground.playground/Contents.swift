@@ -29,13 +29,16 @@ class Grid{
         return count
     }
     
+    func resetChart(){
+
+    }
+    
     
     func move(_ row:Int,_ col:Int){
         
         //guarding for valid cell. otherwise, exit.
-        guard row >= 0, row < rowC, col >= 0, col < colC, grid[row][col] == 1 else{return}
+        guard row >= 0, row < rowC, col >= 0, col < colC, grid[row][col] == 1 else { return }
 
-//        print("row \(row) col \(col)") //valid "1"
         grid[row][col] = 2 //set it to "visited" by assigning 2 so we don't visit it again
         checkNeighbors(row, col)
     }
@@ -67,3 +70,4 @@ var a: [[Int]] = [
 
 var b = Grid(grid: a)
 print(b.numIslands)
+

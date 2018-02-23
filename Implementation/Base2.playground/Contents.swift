@@ -14,3 +14,16 @@ import UIKit
 
 
 
+let a = [4, 1] //count and index of it
+let b = [3, 10, 2, 9]
+let c = 12 //actual
+
+
+
+let should = b.reduce(-b[a[1]], +)/2
+
+if should == c {
+    print("Bon Appetit")
+}else{
+    print(c - should)
+}

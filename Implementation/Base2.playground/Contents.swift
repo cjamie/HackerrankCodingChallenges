@@ -13,14 +13,9 @@ import UIKit
 //returns ID of the bird
 
 
+let arr = [1, 4, 3, 2]
 
-let b = [10, 20, 20, 10, 10, 30, 50, 10, 20]
+arr.reversed().forEach{ print(String($0), terminator: " ") }
 
-var dict = [Int:Int]()
-b.forEach{ dict[$0] = (dict[$0] ?? 0) + 1 }
-let ff = dict.values.reduce(0){ $0 + $1/2 } //$0 is accumulator, and $1 is the next value.
-print(ff)
-//let values = [7.0, 3.0, 10.0]
-//let avg:Double = values.reduce(0.0) { $0 + ($1 / Double(values.count)) }
-//print(avg)
+
 

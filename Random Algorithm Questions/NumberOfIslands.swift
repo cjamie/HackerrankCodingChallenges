@@ -1,6 +1,11 @@
-//: Playground - noun: a place where people can play
+//
+//  NumberOfIslands.swift
+//  
+//
+//  Created by Admin on 2/23/18.
+//
 
-import UIKit
+import Foundation
 
 class Grid{
     var grid: [[Int]]
@@ -34,15 +39,14 @@ class Grid{
         
         //guarding for valid cell. otherwise, exit.
         guard row >= 0, row < rowC, col >= 0, col < colC, grid[row][col] == 1 else{return}
-
-//        print("row \(row) col \(col)") //valid "1"
+        
+        //        print("row \(row) col \(col)") //valid "1"
         grid[row][col] = 2 //set it to "visited" by assigning 2 so we don't visit it again
         checkNeighbors(row, col)
     }
     
     func checkNeighbors(_ row:Int, _ col:Int){ //not necessary but its for readability
         //go to neighbors recursively (DFS way)
-        
         move(row-1, col)
         move(row+1, col)
         move(row, col-1)
@@ -67,3 +71,5 @@ var a: [[Int]] = [
 
 var b = Grid(grid: a)
 print(b.numIslands)
+
+

@@ -18,7 +18,9 @@ let b = [10, 20, 20, 10, 10, 30, 50, 10, 20]
 
 var dict = [Int:Int]()
 b.forEach{ dict[$0] = (dict[$0] ?? 0) + 1 }
-var counter = 0
-dict.forEach{ counter += $0.value/2 }
-print(counter)
+let ff = dict.values.reduce(0){ $0 + $1/2 } //$0 is accumulator, and $1 is the next value.
+print(ff)
+//let values = [7.0, 3.0, 10.0]
+//let avg:Double = values.reduce(0.0) { $0 + ($1 / Double(values.count)) }
+//print(avg)
 

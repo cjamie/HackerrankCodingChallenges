@@ -13,17 +13,18 @@ import UIKit
 //returns ID of the bird
 
 
+let a = 9
+let b = [10, 20, 20, 10, 10, 30, 50, 10, 20]
 
-let a = [4, 1] //count and index of it
-let b = [3, 10, 2, 9]
-let c = 12 //actual
-
-
-
-let should = b.reduce(-b[a[1]], +)/2
-
-if should == c {
-    print("Bon Appetit")
-}else{
-    print(c - should)
+var dict = [Int:Int]()
+b.forEach{
+    if let temp = dict[$0]{
+        dict[$0] = temp + 1
+    }else{
+        dict[$0] = 1
+    }
 }
+print(dict)
+var counter = 0
+dict.forEach{ counter += $0.value/2 }
+print(counter)

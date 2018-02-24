@@ -1,40 +1,13 @@
-//: Playground - noun: a place where people can play
-
-import UIKit
-
-
-// number of elements
-//_ = readLine()!
-//let n = Int(readLine()!)!
-
-// read array and map the elements to integer
-//let arr = readLine()!.components(separatedBy: " ").map{ Int($0)! }
-
-//returns ID of the bird
-
-//: Playground - noun: a place where people can play
-
-
-//class GFG {
 //
-//    //S is the array, m is the length, and n is the target
-//    // Returns the count of ways we can sum S[0...m-1] coins to get sum n
-//    static func counti(S:[Int], m:Int, n:Int )-> Int{
-//    // edge case of 1
-//        if n == 0 { return 1 }
-//    // If n is negative, no solution.
-//        else if n < 0 || m <= 0 && n >= 1{ return 0 }
-//    // count is sum of solutions (i) including S[m-1] (ii) excluding S[m-1]
-//        return counti( S:S, m:m - 1, n:n ) + counti( S:S, m:m, n:n-S[m-1] )
-//    }
-//}
+//  CoinChange.swift
+//  
 //
+//  Created by Admin on 2/24/18.
 //
-//
-var arr:[Int] = [50, 25,5,1]
-let m = arr.count
-//print( GFG.counti(S:arr, m:m, n:79))
 
+import Foundation
+
+// Enter your code here
 
 class GetChange{
     var cache: [String:UInt64] = [:] //Key = target+range, and Value = number of ways for that key
@@ -65,12 +38,22 @@ class GetChange{
     func makeChange(target: Int){
         print(makeChange(target: target, index: 0))
     }
-
+    
     init(coins: [Int]){
         self.coins = coins
     }
 }
 
-var a = GetChange(coins: arr)
-a.makeChange(target: 79)
-print(a.cache,a.cache.count)
+
+
+
+
+let arr1 = readLine()!.components(separatedBy: " ").map{ Int($0)! }
+let arr2 = readLine()!.components(separatedBy: " ").map{ Int($0)! }
+
+var a = GetChange(coins: arr2)
+a.makeChange(target: arr1[0])
+
+
+
+

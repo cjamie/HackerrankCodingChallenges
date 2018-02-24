@@ -11,9 +11,10 @@ import Foundation
 
 class GetChange{
     var cache: [String:UInt64] = [:] //Key = target+range, and Value = number of ways for that key
+    var index = 0
     let coins: [Int]
     
-    private func makeChange( target:Int, index:Int) -> UInt64{
+    func makeChange(target:Int) -> UInt64{
         guard target != 0 else { return 1 } //if target is nothing(0), then it is a(1) solution
         guard index < coins.count else { return 0 } // this means the coin is too big and it is a dead end
         
@@ -26,32 +27,27 @@ class GetChange{
         
         while coinIncrement <= target{        //accounting for every case of coin ex: 0 25 50 75
             defer{ coinIncrement += coins[index] }//update your increment when you come out of the block
-            let remaining = target - coinIncrement //complement would be 79 54 29 4
-            ways += makeChange(target: remaining, index: index+1) //recurse the complements with an incremented index
+            index += 1
+            ways += makeChange(target: target - coinIncrement) //recurse the complements (79 54 29 4)
+            index -= 1
         }
         
         //cache store
         cache[key] = ways
         return ways
     }
-    
-    func makeChange(target: Int){
-        print(makeChange(target: target, index: 0))
-    }
-    
     init(coins: [Int]){
         self.coins = coins
     }
 }
 
 
-
-
-
 let arr1 = readLine()!.components(separatedBy: " ").map{ Int($0)! }
 let arr2 = readLine()!.components(separatedBy: " ").map{ Int($0)! }
+print(GetChange(coins: arr2).makeChange(target: arr1[0]))
 
-GetChange(coins: arr2).makeChange(target: arr1[0])
+
+
 
 
 

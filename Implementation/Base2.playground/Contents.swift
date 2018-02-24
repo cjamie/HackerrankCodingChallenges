@@ -12,25 +12,21 @@ import UIKit
 
 
 
-//let n = Int(readLine()!)!
-let n = 10
-//lets try the 2d array approach
-var myStrings:[[String]] =  [["1", "42"], ["2"], ["1", "14"], ["3"], ["1", "28"], ["3"], ["1", "60"], ["1", "78"], ["2"], ["2"]]
-//for _ in stride(from: 0, to: n, by: 1){
-//    myStrings.append(readLine()!.components(separatedBy: " ").map{ $0 })
-//}
+var a = "azcdsyeaz".map{$0.unicodeScalars.filter{$0.isASCII}[0].value}
+var b = "abc".map{$0.unicodeScalars.filter{$0.isASCII}[0].value}
 
-//print(myStrings)
+var bucket1 = Array(repeating: 0, count: 26)
+var bucket2 = Array(repeating: 0, count: 26)
 
-var myArr = [Int]()
-myStrings.forEach{
-    if $0.count == 1{
-        if $0[0] == "2"{
-            myArr = Array(myArr.dropFirst())
-        }else{
-            print(myArr[0])
-        }
-    }else{
-        myArr.append(Int($0[1])!)
-    }
-}
+a.forEach{ bucket1[Int($0)-97] += 1 }
+b.forEach{ bucket2[Int($0)-97] += 1 }
+
+print(zip(bucket1, bucket2).reduce(0){ $0 + abs($1.0-$1.1) })
+
+//
+//print(a) //uint32
+//print(b)
+//
+print(bucket1)
+print(bucket2)
+

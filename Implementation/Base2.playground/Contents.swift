@@ -71,6 +71,6 @@ class GetChange{
     }
 }
 
-var a = GetChange(coins: arr)
-a.makeChange(target: 79)
-print(a.cache,a.cache.count)
+var a = GetChange(coins: arr).makeChange(target: 79)
+//print(a.cache,a.cache.count)
+

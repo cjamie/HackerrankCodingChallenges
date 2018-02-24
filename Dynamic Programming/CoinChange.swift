@@ -51,8 +51,7 @@ class GetChange{
 let arr1 = readLine()!.components(separatedBy: " ").map{ Int($0)! }
 let arr2 = readLine()!.components(separatedBy: " ").map{ Int($0)! }
 
-var a = GetChange(coins: arr2)
-a.makeChange(target: arr1[0])
+GetChange(coins: arr2).makeChange(target: arr1[0])
 
 
 

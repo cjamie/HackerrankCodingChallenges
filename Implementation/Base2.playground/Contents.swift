@@ -15,6 +15,12 @@ import UIKit
 let a = 3
 let b = [1, 1, 2]
 //key is int, and value is occurences
-var dict = [Int:Int]()
-b.map{ dict[$0] = (dict[$0] ?? 0) + 1 }
-print(dict.first{$0.value == 1}!.key)
+//var dict = [Int:Int]()
+//b.map{ dict[$0] = (dict[$0] ?? 0) + 1 }
+//print(dict.first{$0.value == 1}!.key)
+
+
+
+var value = 0
+
+print(b.reduce(0){ $0 ^ $1 })

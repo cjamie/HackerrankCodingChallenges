@@ -11,22 +11,38 @@ import UIKit
 //let arr = readLine()!.components(separatedBy: " ").map{ Int($0)! }
 
 
+//let arr = readLine()!.components(separatedBy: " ").map{ String($0)! }
 
-var a = "azcdsyeaz".map{$0.unicodeScalars.filter{$0.isASCII}[0].value}
-var b = "abc".map{$0.unicodeScalars.filter{$0.isASCII}[0].value}
 
-var bucket1 = Array(repeating: 0, count: 26)
-var bucket2 = Array(repeating: 0, count: 26)
 
-a.forEach{ bucket1[Int($0)-97] += 1 }
-b.forEach{ bucket2[Int($0)-97] += 1 }
+let a = "give me one grand today night night"
+let b = "give one grand today"
 
-print(zip(bucket1, bucket2).reduce(0){ $0 + abs($1.0-$1.1) })
+var dict = [String:Int]()
 
-//
-//print(a) //uint32
-//print(b)
-//
-print(bucket1)
-print(bucket2)
+let c = a.components(separatedBy: " ").map{
+    dict[$0] = (dict[$0] ?? 0) + 1
+}
+print(dict)
+
+let d = b.components(separatedBy: " ")
+
+for i in stride(from: 0, to: d.count, by: 1){
+    if let temp = dict[d[i]]{
+        if temp == 0{
+            print("NO")
+            break
+        }
+        dict[d[i]] = temp - 1
+        if i == d.count-1{
+            print("yes")
+        }
+    }else{ //there was no entry
+        print("NO")
+        break
+    }
+}
+
+
+print(dict)
 

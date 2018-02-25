@@ -12,15 +12,10 @@ import UIKit
 
 //let arr = readLine()!.components(separatedBy: " ").map{ String($0)! }
 
-let a = 3
-let b = [1, 1, 2]
-//key is int, and value is occurences
-//var dict = [Int:Int]()
-//b.map{ dict[$0] = (dict[$0] ?? 0) + 1 }
-//print(dict.first{$0.value == 1}!.key)
+var a = 3
+var b = 1 2 3
+Sample Output 0
 
-
-
-var value = 0
-
-print(b.reduce(0){ $0 ^ $1 })
+Array is sorted in 0 swaps.
+First Element: 1
+Last Element: 3

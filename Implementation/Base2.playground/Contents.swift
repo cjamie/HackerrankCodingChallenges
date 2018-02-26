@@ -13,21 +13,31 @@ import UIKit
 
 var cache:[Int:Int] = [0:0,1:1]
 
-func fib(n: Int) -> Int {
-    if let temp = cache[n]{
-        print("n: \(n) \(cache[n])")
-        return temp
+//func fib(n: Int) -> Int {
+//    if let temp = cache[n]{
+//        print("n: \(n) \(cache[n])")
+//        return temp
+//    }
+//
+//    cache[n] = fib(n: n-1) + fib(n: n-2)
+//    return cache[n]!
+//}
+func fibb(_ n:Int)->Int {
+    var fib:[Int] = [0,1]
+    for i in stride(from: 2, to: n+1, by: 1){
+        print("i \(i,i%2,fib)")
+        fib[i % 2] = fib[0] + fib[1]
     }
-    
-    cache[n] = fib(n: n-1) + fib(n: n-2)
-    return cache[n]!
+    return fib[n % 2]
 }
+
+
 
 // read the integer n
 let n = 6
 
 // print the nth fibonacci number
-print(fib(n: n))
+print(fibb(n))
 
 
 

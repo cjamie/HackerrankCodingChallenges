@@ -2,40 +2,83 @@
 
 import UIKit
 
-
-// number of elements
-//_ = readLine()!
-//let n = Int(readLine()!)!
-
-// read array and map the elements to integer
-//let arr = readLine()!.components(separatedBy: " ").map{ Int($0)! }
-
-//let arr = readLine()!.components(separatedBy: " ").map{ String($0)! }
-
-var a = [3, 2, 1]
-
-var counter = 0
-a.forEach{ _ in
-    for j in stride(from: 0, to: a.count-1, by: 1){
-        if a[j] > a[j + 1] {
-            a[j] = a[j] + a[j+1]
-            a[j+1] = a[j] - a[j+1]
-            a[j] = a[j] - a[j+1]
-            counter += 1
-        }
+class Grid{
+    private var grid: [[Int]]
+    var islandSizes:[Int] = []
+    var size = 0
+    var cacheValue: Int? //holding cache value for numIslands
+    
+    var rowC: Int{
+        return grid.count
     }
+    var colC: Int{
+        return grid[0].count
+    }
+    var bodyOfWater:Int{
+        return rowC * colC - islandSizes.reduce(0, +)
+    }
+    var numIslands: Int{
+        if let temp = cacheValue{ //check cache so we don't need to calculate
+            print("accessing cache for value")
+            return temp
+        }
+        
+        //guarding for edge case where grid is nothing
+        guard rowC != 0, colC != 0 else {return 0}
+        
+        var count = 0
+        for i in stride(from: 0, to: rowC, by: 1){
+            for j in stride(from: 0, to: colC, by: 1){
+                //this is the beginning of a new island
+                if grid[i][j] == 1{
+                    count += 1
+                    move(i, j)
+
+                    //record the size in your array an reset it
+                    islandSizes.append(size)
+                    size = 0
+                }
+            }
+        }
+        
+        cacheValue = count //storing it so we don't have to loop through again the second time.
+        return count
+    }
+    
+    func move(_ row:Int,_ col:Int){
+        
+        //guarding for valid cell. otherwise, exit.
+        guard row >= 0, row < rowC, col >= 0, col < colC, grid[row][col] == 1 else{return}
+        
+        grid[row][col] = 2 //set it to "visited" by assigning 2 so we don't visit it again
+        size += 1   // every valid move will increment size
+
+        //go to neighbors recursively (DFS way)
+        move(row-1, col)
+        move(row+1, col)
+        move(row, col-1)
+        move(row, col+1)
+    }
+    
+    init(grid: [[Int]]) {
+        self.grid = grid
+    }
+    
 }
 
-print("Array is sorted in \(counter) swaps.")
-print("First Element: \(a[0])")
-print("Last Element: \(a[a.count-1])")
+var a: [[Int]] = [
+    [0,0,0,1,0,0,0,0],
+    [0,0,1,1,1,0,0,1],
+    [0,0,0,1,0,0,1,1],
+    [0,0,0,0,0,1,1,0],
+    [0,1,0,0,0,0,0,0],
+    [1,1,0,0,0,0,0,0]
+]
 
-//Sample Output 0
-
-//Array is sorted in 0 swaps.
-//First Element: 1
-//Last Element: 3
-
-
+let b = Grid(grid: a)
+print(b.numIslands)
+print(b.islandSizes)
+print(b.bodyOfWater)
+print(b.numIslands)
 
 

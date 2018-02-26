@@ -1,28 +1,21 @@
-//: Playground - noun: a place where people can play
+//
+//  DFS- Connected Cell in a Grid.swift
+//  
+//
+//  Created by Admin on 2/26/18.
+//
 
-import UIKit
-// number of elements
-//_ = readLine()!
-//let n = Int(readLine()!)!
-// read array and map the elements to integer
-//let arr = readLine()!.components(separatedBy: " ").map{ Int($0)! }
-//let arr = readLine()!.components(separatedBy: " ").map{ String($0)! }
-//: Playground - noun: a place where people can play
-
-//: Playground - noun: a place where people can play
-
-
+import Foundation
 
 // Enter your code here
-let m = 7
-let n = 5
-//var arr = [[Int]]()
+let m = Int(readLine()!)!
+let n = Int(readLine()!)!
+var arr = [[Int]]()
 
-//for _ in stride(from: 0, to: m, by: 1){
-//    arr.append(readLine()!.components(separatedBy: " ").map{ Int($0)! })
-//
-//}
-
+for _ in stride(from: 0, to: m, by: 1){
+    arr.append(readLine()!.components(separatedBy: " ").map{ Int($0)! })
+    
+}
 
 class Grid{
     var grid: [[Int]]
@@ -56,7 +49,7 @@ class Grid{
                 if self.grid[i][j] == 1{
                     count += 1
                     move(i, j)
-
+                    
                     //record the size in your array an reset it
                     islandSizes.append(size)
                     size = 0
@@ -65,23 +58,4 @@ class Grid{
         }
     }
 }
-
-var arr = [[1, 1, 1, 0, 1],
-           [0, 0, 1, 0, 0],
-           [1, 1, 0, 1, 0],
-           [0, 1, 1, 0, 0],
-           [0, 0, 0, 0, 0],
-           [0, 1, 0, 0, 0],
-           [0, 0, 1, 1, 0]]
-//print(arr)
-let b = Grid(grid: arr)
-//print(b.islandSizes)
-print(b.islandSizes.max()!)
-
-
-
-
-
-
-
-
+print(Grid(grid: arr).islandSizes.max()!)

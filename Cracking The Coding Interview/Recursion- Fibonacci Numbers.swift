@@ -33,7 +33,7 @@ print(fib(n: n))
  var fib:[Int] = [0,1]
  for i in stride(from: 2, to: n+1, by: 1){
  print("i \(i,i%2,fib)")
- fib[i % 2] = fib[0] + fib[1]
+ fib[i % 2] = fib.reduce(0, +)
  }
  return fib[n % 2]
  }

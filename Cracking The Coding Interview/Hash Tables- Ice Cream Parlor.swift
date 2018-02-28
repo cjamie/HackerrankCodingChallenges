@@ -8,18 +8,8 @@
 import Foundation
 
 // Enter your code here
-var targets:[Int] = []
-var arrs:[[Int]] = []
 
 let a1 = Int(readLine()!)!
-for _ in stride(from: 0, to: a1, by: 1){
-    let target = Int(readLine()!)!
-    _ = readLine()!
-    let arr = readLine()!.components(separatedBy: " ").map{ Int($0)! }
-    
-    targets.append(target)
-    arrs.append(arr)
-}
 
 func printIt(target:Int,with a:[Int]){
     var dict:[Int:Int] = [:]
@@ -32,6 +22,9 @@ func printIt(target:Int,with a:[Int]){
     }
 }
 
-zip(targets, arrs).forEach{ printIt(target:$0.0,with:$0.1) }
-
-
+for _ in stride(from:0, to: a1, by: 1){
+    let target = Int(readLine()!)!
+    _ = readLine()!
+    // let arr = readLine()!.components(separatedBy: " ").map{ Int($0)! }
+    printIt(target:target,with:readLine()!.components(separatedBy: " ").map{ Int($0)! })
+}

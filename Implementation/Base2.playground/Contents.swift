@@ -10,7 +10,7 @@ import UIKit
 
 
 
+let a = ["amy","david","heraldo","aakansha","aleksa"]
+let b = [100, 100, 50, 75, 150]
 
-let a = 6
-
-print( a % 2 == 0 && (a==4 || a > 20) ? "Not Weird" : "Weird")
+print(zip(a,b).sorted(by: {$0.1 > $1.1}).map{$0})

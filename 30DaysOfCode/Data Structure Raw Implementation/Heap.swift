@@ -1,16 +1,11 @@
-//: Playground - noun: a place where people can play
+//
+//  Heap.swift
+//  
+//
+//  Created by Admin on 2/28/18.
+//
 
-import UIKit
-// number of elements
-//_ = readLine()!
-//let n = Int(readLine()!)!
-// read array and map the elements to integer
-//let arr = readLine()!.components(separatedBy: " ").map{ Int($0)! }
-//let arr = readLine()!.components(separatedBy: " ").map{ String($0)! }
-
-
-// print the nth fibonacci number
-
+import Foundation
 
 /*      The heap data structure:
  There are two types of heaps: MIN OR MAX heaps
@@ -94,7 +89,7 @@ extension CoreFunctions{
     enum ArrayErr: Error{
         case sizeZero
     }
-
+    
     //retrieves root of the heap
     func peek() throws -> Int {
         guard heapC != 0 else {throw ArrayErr.sizeZero}
@@ -147,5 +142,3 @@ print(b.heap)
 b.add(item: 8)
 try? b.poll()
 print(b.heap)
-
-

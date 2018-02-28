@@ -58,16 +58,23 @@ let arr = [1, 3, 2, 6, 4, 5, 9]
 //print("counter \(counter)")
 
 
+let a = [5, 11, 15, 0]
+let b = 5
 
-var counter = 0
-for i in stride(from: 0, to: arr.count, by: 1){
-    for j in stride(from: i, to: arr.count, by: 1){
-        if i != j, (arr[i]+arr[j]) % k == 0{
-            counter += 1
+class Solution {
+    func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
+        var dict = [Int:Int]()
+        for i in stride(from: 0, to: nums.count, by: 1) {
+            if let temp = dict[target - nums[i]], temp != i {
+                return [temp,i]
+            }
+            dict[nums[i]] = i
         }
+        return []
     }
 }
 
-print(counter)
+
+Solution().twoSum(a, b)
 
 

@@ -8,15 +8,15 @@ import UIKit
 //let arr = readLine()!.components(separatedBy: " ").map{ Int($0)! }
 //let arr = readLine()!.components(separatedBy: " ").map{ String($0)! }
 
-let a = "aaabccddd"
-var stack = [Character]()
-a.forEach{
-    if stack.last == $0{
-        stack.remove(at: stack.count-1)
-    }else{
-        stack.append($0)
-    }
-}
+//import Cocoa
 
-print(stack.count == 0 ? "Empty String":String(stack))
+let input = "#HackerRank"
+let pattrn = "((?=.*\\d)(?=.*[A-Z])(?=.*\\W).{6,6})"
+//let _ = readLine()!
+//let input = readLine()!
+let inputC = input.count
+
+let patterns:[String] = ["\\d", "[a-z]", "[A-Z]", "\\W"]
+let nums = patterns.filter{ try! NSRegularExpression(pattern: $0, options: []).matches(in: input, options: [], range: NSRange(location: 0, length: inputC)).count > 0 }.count
+print(max(4-nums, 6-inputC))
 

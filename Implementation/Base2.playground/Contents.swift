@@ -16,31 +16,29 @@ import UIKit
 
 //even means 1 more
 
-        //0  1  2  3  4  5
-//let a = [[1, 1, 1, 0, 0, 0],
-//         [0, 1, 0, 0, 0, 0],
-//         [1, 1, 1, 0, 0, 0],
-//         [0, 0, 2, 4, 4, 0],
-//         [0, 0, 0, 2, 0, 0],
-//         [0, 0, 1, 2, 4, 0]]
+let dict:[Int:Int] = [1:31, 3:31, 4:30, 5:31, 6:30, 7:31, 8:31, 9:30, 10:31, 11:30, 12:21]
 
-let a = [[0, -4, -6, 0, -7, -6],
-    [-1, -2, -6, -8, -3, -1],
-    [-8, -4, -2, -8, -8, -6],
-    [-3, -1, -2, -5, -7, -4],
-    [-3, -5, -3, -6, -6, -6],
-    [-3, -6, 0, -8, -6, -7]]
+print(dict)
+
+let year = 2017
+let formatter = DateFormatter()
+formatter.dateFormat = "yyyy"
+
+let date = formatter.date(from: "2016")
+
+print(date)
 
 
+//case 1:
 
-var counter:Int = Int.min
-for row in stride(from: 0, to: 4, by: 1){ //row
-    for col in stride(from: 0, to: 4, by: 1) { //col
-        let sum:Int =
-            a[row][col] + a[row][col+1] + a[row][col+2] +
-            a[row+1][col+1] +
-            a[row+2][col] + a[row+2][col+1] + a[row+2][col+2]
-        if sum > counter{ counter = sum }
+if year < 1918 {
+    if year % 100 == 0{
+        
     }
+}else if year == 1918{ //256 + 15 = 269
+    
+}else{ //gregoria calendar
+    
 }
-print(counter)
+
+

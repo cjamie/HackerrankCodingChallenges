@@ -3,6 +3,7 @@
 import UIKit
 // number of elements
 //_ = readLine()!
+//let n = readLine()!
 //let n = Int(readLine()!)!
 // read array and map the elements to integer
 //let arr = readLine()!.components(separatedBy: " ").map{ Int($0)! }
@@ -10,13 +11,35 @@ import UIKit
 
 //import Cocoa
 
-let input = "#HackerRank"
-let pattrn = "((?=.*\\d)(?=.*[A-Z])(?=.*\\W).{6,6})"
-//let _ = readLine()!
-//let input = readLine()!
-let inputC = input.count
+//let a = "Hacker"
+let b = "Rank"
 
-let patterns:[String] = ["\\d", "[a-z]", "[A-Z]", "\\W"]
-let nums = patterns.filter{ try! NSRegularExpression(pattern: $0, options: []).matches(in: input, options: [], range: NSRange(location: 0, length: inputC)).count > 0 }.count
-print(max(4-nums, 6-inputC))
+extension String{
+    subscript(i:Int)->Character{
+        return self[self.index(startIndex, offsetBy: i)]
+    }
+}
 
+
+
+let o = 1
+for _ in 1...o{
+    let a = "Hacker".map{$0}
+    
+    for (i, char) in a.enumerated()  {
+        if i%2 == 0 {
+            print(char, terminator: "")
+        }
+    }
+    
+    for (i, char) in a.enumerated()  {
+        if i%2 == 1 {
+            print(char, terminator: "")
+        }
+    }
+}
+
+
+
+print("after")
+//

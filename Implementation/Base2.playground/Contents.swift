@@ -9,37 +9,9 @@ import UIKit
 //let arr = readLine()!.components(separatedBy: " ").map{ Int($0)! }
 //let arr = readLine()!.components(separatedBy: " ").map{ String($0)! }
 
-//import Cocoa
 
-//let a = "Hacker"
-let b = "Rank"
+let a = [1, 4, 3, 2]
 
-extension String{
-    subscript(i:Int)->Character{
-        return self[self.index(startIndex, offsetBy: i)]
-    }
+a.reversed().forEach{
+    print("\($0)", terminator:" ")
 }
-
-
-
-let o = 1
-for _ in 1...o{
-    let a = "Hacker".map{$0}
-    
-    for (i, char) in a.enumerated()  {
-        if i%2 == 0 {
-            print(char, terminator: "")
-        }
-    }
-    
-    for (i, char) in a.enumerated()  {
-        if i%2 == 1 {
-            print(char, terminator: "")
-        }
-    }
-}
-
-
-
-print("after")
-//

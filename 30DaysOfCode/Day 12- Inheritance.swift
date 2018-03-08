@@ -1,24 +1,13 @@
-//: Playground - noun: a place where people can play
-
-import UIKit
-// number of elements
-//_ = readLine()!
-//let n = readLine()!
-//let n = Int(readLine()!)!
-// read array and map the elements to integer
-//let arr = readLine()!.components(separatedBy: " ").map{ Int($0)! }
-//let arr = readLine()!.components(separatedBy: " ").map{ String($0)! }
-//while let str = readLine(){
-
-var b = 5
-print(String(b, radix:2))
-//divide by 2
-//print(String(b>>1, radix: 2))
+//
+//  Day 12- Inheritance.swift
+//  
+//
+//  Created by Admin on 3/8/18.
+//
 
 // Class Student
 class Student: Person {
     var testScores: [Int]
-    
     /*
      *   Initializer
      *
@@ -32,9 +21,6 @@ class Student: Person {
     init(firstName: String, lastName: String, id: Int, scores: [Int]){
         testScores = scores
         super.init(firstName: firstName, lastName: lastName, id: id)
-        // self.firstName = firstName
-        //self.lastName = lastName
-        // self.id = id
     }
     
     /*
@@ -43,8 +29,7 @@ class Student: Person {
      */
     // Write your method here
     func calculate() -> Character {
-        let total = testScores.reduce(0,+)
-        let average:Int = total/testScores.count
+        let average = testScores.reduce(0,+)/testScores.count
         switch average{
         case let x where x < 40:
             return "T"
@@ -61,4 +46,4 @@ class Student: Person {
         }
         
     }
-} 
+} // End of class Student

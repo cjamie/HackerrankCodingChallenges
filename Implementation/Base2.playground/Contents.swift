@@ -10,50 +10,18 @@ import UIKit
 //let arr = readLine()!.components(separatedBy: " ").map{ String($0)! }
 //while let str = readLine(){
 
-import Foundation
 
-class Node {
-    let data: Int
-    var next: Node?
-    
-    init(data: Int) {
-        self.data = data
-    }
-}
-
-func insert(head: Node?, data: Int!) -> Node? {
-    // Enter your code here.
-    var head = head
-    guard head != nil else{
-
-        head = Node(data: data)
-        return head
-    }
-    var current:Node = head!
-    while current.next != nil{
-        current = current.next!
-    }
-    current.next = Node(data: data)
-    return head
-}
+/*
+ jail has N number of prisoners
+ each prisoner has a unique identifier S (ranging from 1-n)
+ there are M number of sweets to be distributed.
+ 
+ we pass sweets to each psoner sequentially
+ 
+ 
+ 
+ 
+*/
 
 
-
-func display(head: Node?) {
-    var current = head
-    while current != nil {
-        print(current!.data, terminator: " ")
-        current = current!.next
-    }
-}
-
-var head: Node?
-
-
-[2,3,4,1].forEach{ head = insert(head: head, data: $0) }
-display(head: head)
-
-//head = Node(data: 2)
-//head?.next = Node(data: 1)
-//display(head: head)
 

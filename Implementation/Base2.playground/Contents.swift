@@ -10,25 +10,53 @@ import UIKit
 //let arr = readLine()!.components(separatedBy: " ").map{ String($0)! }
 //while let str = readLine(){
 //var a:[[Int]] = []
-//for 1...3{
+//for _ in 1...count{
 //    a.append(readLine()!.components(separatedBy: " ").map{ Int($0)! })
 //}
 
 
 
-        //                  2 3 is 1
-//we start at front page -- 0 1 to n. --  n/2 = one possible answer
-//we start at last page  --
-//(even) last - n /2
+let a = "DDUUDDUDUUUD"
+var counter = 0
+var flag = true
+var total = 0
 
-    let b = 6
-    let a = 2
-    let c =  min(a / 2, (b / 2 * 2 + 1 - a) / 2)
-    print(c)
-/////
+//a.map{
+//    if $0 == "U"{
+//        counter += 1
+//        if counter == 0{
+//            flag = true
+//        }
+//    }else{
+//        if flag, counter < 0 {
+//            total += 1
+//            flag = false
+//            print("counter")
+//        }
+//
+//        counter -= 1
+//    }
+//    print($0,counter)
+//}
+
+let d = a.reduce(0) {
+    if $1 == "U"{
+        counter += 1
+        if counter == 0{
+            flag = true
+        }
+    }else{
+        counter -= 1
+        if flag, counter < 0 {
+            flag = false
+            return $0 + 1
+        }
+    }
+    return $0
+}
 
 
+//print(total)
 
-
-
+print(d)
 

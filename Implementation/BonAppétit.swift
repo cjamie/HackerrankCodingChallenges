@@ -15,8 +15,6 @@ let c = Int(readLine()!)!
 
 let should = b.reduce(-b[a[1]], +)/2
 
-if should == c {
-    print("Bon Appetit")
-}else{
-    print(c - should)
-}
+print(should == c ? "Bon Appetit" : c - should)
+
+

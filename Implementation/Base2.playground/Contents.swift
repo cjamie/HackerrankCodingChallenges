@@ -1,6 +1,5 @@
-//: Playground - noun: a place where people can play
-
 import UIKit
+
 // number of elements
 //_ = readLine()!
 //let n = readLine()!
@@ -15,48 +14,14 @@ import UIKit
 //}
 
 
+var a = 10
+let b = 11
+let c = 12
+a += true ? b : c
 
-let a = "DDUUDDUDUUUD"
-var counter = 0
-var flag = true
-var total = 0
-
-//a.map{
-//    if $0 == "U"{
-//        counter += 1
-//        if counter == 0{
-//            flag = true
-//        }
-//    }else{
-//        if flag, counter < 0 {
-//            total += 1
-//            flag = false
-//            print("counter")
-//        }
-//
-//        counter -= 1
-//    }
-//    print($0,counter)
-//}
-
-let d = a.reduce(0) {
-    if $1 == "U"{
-        counter += 1
-        if counter == 0{
-            flag = true
-        }
-    }else{
-        counter -= 1
-        if flag, counter < 0 {
-            flag = false
-            return $0 + 1
-        }
-    }
-    return $0
-}
+print(a)
 
 
-//print(total)
 
-print(d)
+
 
